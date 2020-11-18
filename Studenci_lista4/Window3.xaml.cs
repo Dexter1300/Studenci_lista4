@@ -19,6 +19,7 @@ namespace Studenci_lista4
     /// </summary>
     public partial class Window3 : Window
     {
+        private List<Person> m_oPersonList = null;
         public Window3()
         {
             InitializeComponent();
