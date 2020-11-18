@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Studenci_lista4
     /// </summary>
     public partial class win2 : Window
     {
+        private string sciezka = "";
         private List<Person> m_oPersonList = null;
         public win2()
         {
@@ -50,12 +52,25 @@ namespace Studenci_lista4
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            m_oPersonList.Add(new Person(m_oPersonList.Count + 1, imie.Text, nazwisko.Text, Convert.ToInt16(wiek.Text), Convert.ToInt64(Pesel.Text)));
+            m_oPersonList.Add(new Person(m_oPersonList.Count + 1, imie.Text, nazwisko.Text, Convert.ToInt16(wiek.Text), Convert.ToInt64(Pesel.Text),sciezka));
             MessageBox.Show("Dodano nową osobę");
             var serializer = new XmlSerializer(m_oPersonList.GetType());
             using (var writer = XmlWriter.Create("PersonList.xml"))
             {
                 serializer.Serialize(writer, m_oPersonList);
+            }
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Filses(*.jpg; *.jpeg; *.gif; .bmp;)|.jpg; *.jpeg; *.gif; *.bmp; *.png;";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                sciezka = openFileDialog.FileName;
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                Picture.Source = new BitmapImage(fileUri);
             }
         }
     }

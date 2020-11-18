@@ -50,9 +50,9 @@ namespace Studenci_lista4
 
             if (m_oPersonList.Count == 0)
             {
-                m_oPersonList.Add(new Person(1, "Jan", "Kowalski", 25, 9909090));
-                m_oPersonList.Add(new Person(2, "Adam", "Nowak", 24, 899898030));
-                m_oPersonList.Add(new Person(3, "Agnieszka", "Kowalczyk", 20, 0032329309));
+                m_oPersonList.Add(new Person(1, "Jan", "Kowalski", 25, 9909090, "C:\\xampp\\htdocs\\pro\\img\\arrow-left.png"));
+                m_oPersonList.Add(new Person(2, "Adam", "Nowak", 24, 899898030, "C:\\xampp\\htdocs\\pro\\img\\arrow-left.png"));
+                m_oPersonList.Add(new Person(3, "Agnieszka", "Kowalczyk", 20, 0032329309, "C:\\xampp\\htdocs\\pro\\img\\arrow-left.png"));
             }
             lstPersons.ItemsSource = m_oPersonList;
 
@@ -81,5 +81,6 @@ namespace Studenci_lista4
                 serializer.Serialize(writer, m_oPersonList);
             }
         }
+
     }
 }

@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Studenci_lista4"
         mc:Ignorable="d"
-        Title="Window3" Height="230" Width="300">
+        Title="Window3" Height="230" Width="600">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,5 +28,7 @@
         <TextBox Grid.Row="3" Height="25" Width="200" Margin="50,5,10,5" Name="Pesel" IsEnabled="False"/>
         <Button Grid.Row="4" Content="Edytuj" Click="Button_Click" Height="25" Width="50" Margin="81,7,161,4"/>
         <Button Grid.Row="4" Content="Zapisz" Click="Button_Click2" Height="25" Width="50" Margin="159,7,83,4"/>
+        <Image Grid.RowSpan="4" Grid.Column="1" Width="160" Name="Picture"></Image>
+        <Button Grid.Row="4" Grid.Column="1" Content="Wybierz" Height="25" Width="50" IsEnabled="False" Name="obrazek" Click="Button_Click3"/>
     </Grid>
 </Window>

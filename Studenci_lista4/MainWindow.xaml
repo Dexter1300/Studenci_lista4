@@ -28,6 +28,13 @@
                             DisplayMemberBinding="{Binding LastName}" />
                         <GridViewColumn Header="Wiek"
                             DisplayMemberBinding="{Binding Age}" />
+                        <GridViewColumn  Header="Obraz">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding obraz}" Width="25" Height="25"></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

@@ -24,13 +24,17 @@ namespace Studenci_lista4
         [XmlAttribute("pesel")]
         public long Pesel { get; set; }
 
-        public Person(int nPersonId, string sFirstName, string sLastName, int nAge, long lPesel)
+        [XmlElement("Obraz")]
+        public string obraz { get; set; }
+
+        public Person(int nPersonId, string sFirstName, string sLastName, int nAge, long lPesel, string Obraz)
         {
             PersonId = nPersonId;
             FirstName = sFirstName;
             LastName = sLastName;
             Age = nAge;
             Pesel = lPesel;
+            obraz = Obraz;
         }
 
         public Person()
@@ -40,6 +44,7 @@ namespace Studenci_lista4
             LastName = "Januszewski";
             Age = 120;
             Pesel = 999909090;
+            obraz = "image";
         }
     }
 }

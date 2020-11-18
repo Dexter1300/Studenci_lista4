@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Studenci_lista4
     /// </summary>
     public partial class Window3 : Window
     {
+        private string sciezka;
         public string idP;
         private List<Person> m_oPersonList = null;
         public Window3(string text)
@@ -61,6 +63,7 @@ namespace Studenci_lista4
             nazwisko.IsEnabled = true;
             wiek.IsEnabled = true;
             Pesel.IsEnabled = true;
+            obrazek.IsEnabled = true;
         }
 
         private void Button_Click2(object sender, RoutedEventArgs e)
@@ -76,6 +79,21 @@ namespace Studenci_lista4
             {
                 serializer.Serialize(writer, m_oPersonList);
             }
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Filses(*.jpg; *.jpeg; *.gif; .bmp;)|.jpg; *.jpeg; *.gif; *.bmp; *.png;";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                sciezka = openFileDialog.FileName;
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                Picture.Source = new BitmapImage(fileUri);
+            }
+            Person oFoundPerson = m_oPersonList.Find(oElement => oElement.PersonId == Convert.ToInt32(idP));
+            oFoundPerson.obraz = Convert.ToString(Picture.Source);
         }
     }
 }
