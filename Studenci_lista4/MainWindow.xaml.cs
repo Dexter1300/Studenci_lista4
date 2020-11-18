@@ -66,7 +66,7 @@ namespace Studenci_lista4
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Window3 win3 = new Window3();
+            Window3 win3 = new Window3(id.Text);
             win3.Show();
         }
         private void Button_Click3(object sender, RoutedEventArgs e)
